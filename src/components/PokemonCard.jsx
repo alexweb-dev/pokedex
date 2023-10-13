@@ -11,7 +11,8 @@
           <p>???</p>
         )}
   
-        <figcaption>{props.pokemon.name}</figcaption>
+        <figcaption>{props.pokemon.name}
+        <br />{props.pokemon2.name}</figcaption>
       </figure>
     );
   }

@@ -22,6 +22,7 @@ function App() {
       <MyTitle />
       <PokemonCard      
       pokemon = {pokemonList[0]}
+      pokemon2 = {pokemonList[1]}
       />
     </div>
   );

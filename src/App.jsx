@@ -4,9 +4,10 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import MyTitle from "./components/MyTitle"
 import PokemonCard from "./components/PokemonCard" // Utilisez PokemonCard ici
+import NavBar from "./components/NavBar" // Utilisez PokemonCard ici
 
 const pokemonList = [
-  {
+    {
       name: "bulbasaur",
       imgSrc:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
@@ -34,7 +35,7 @@ const pokemonList = [
 function App() {
   const [pokemonIndex, setPokemonIndex] = useState(0);
 
-  const previousClick = () => {
+  /*const previousClick = () => {
     if (pokemonIndex > 0) {
       setPokemonIndex(pokemonIndex - 1);
 
@@ -45,8 +46,7 @@ function App() {
     if (pokemonIndex < pokemonList.length - 1) {
       setPokemonIndex(pokemonIndex + 1);
     }
-  };
-/*                Without Ternaire Method:
+  }
 
   let previousButton = null;
   let nextButton = null;
@@ -57,32 +57,17 @@ function App() {
   
   if (pokemonIndex < pokemonList.length - 1) {
     nextButton = <button onClick={nextClick}>Suivant</button>;
-  }
+  }*/
   
   
   return (
     <div>
       <MyTitle />
-      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      {previousButton}
-      {nextButton}
+      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+      <NavBar pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} pokemonList ={pokemonList}/>
       <p>#{pokemonIndex + 1}</p>
     </div>
   );
 }
-*/
-
-//              With Ternaire Method:
-  return (
-    <div>
-      <MyTitle />
-      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      {pokemonIndex > 0 ? <button onClick={previousClick}>Précédent</button> : null}
-      {pokemonIndex < pokemonList.length - 1 ? <button onClick={nextClick}>Suivant</button> : null}
-      <p>#{pokemonIndex + 1}</p>
-    </div>
-  );
-}
-
 
 export default App;

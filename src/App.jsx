@@ -46,7 +46,33 @@ function App() {
       setPokemonIndex(pokemonIndex + 1);
     }
   };
+/*                Without Ternaire Method:
 
+  let previousButton = null;
+  let nextButton = null;
+  
+  if (pokemonIndex > 0) {
+    previousButton = <button onClick={previousClick}>Précédent</button>;
+  }
+  
+  if (pokemonIndex < pokemonList.length - 1) {
+    nextButton = <button onClick={nextClick}>Suivant</button>;
+  }
+  
+  
+  return (
+    <div>
+      <MyTitle />
+      <PokemonCard pokemon={pokemonList[pokemonIndex]} />
+      {previousButton}
+      {nextButton}
+      <p>#{pokemonIndex + 1}</p>
+    </div>
+  );
+}
+*/
+
+//              With Ternaire Method:
   return (
     <div>
       <MyTitle />

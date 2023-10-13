@@ -37,6 +37,7 @@ function App() {
   const previousClick = () => {
     if (pokemonIndex > 0) {
       setPokemonIndex(pokemonIndex - 1);
+
     }
   };
 
@@ -50,8 +51,8 @@ function App() {
     <div>
       <MyTitle />
       <PokemonCard pokemon={pokemonList[pokemonIndex]} />
-      <button onClick={previousClick}>Précédent</button>
-      <button onClick={nextClick}>Suivant</button>
+      {pokemonIndex > 0 ? <button onClick={previousClick}>Précédent</button> : null}
+      {pokemonIndex < pokemonList.length - 1 ? <button onClick={nextClick}>Suivant</button> : null}
       <p>#{pokemonIndex + 1}</p>
     </div>
   );

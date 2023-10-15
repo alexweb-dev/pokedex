@@ -3,37 +3,42 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import MyTitle from "./components/MyTitle"
-import PokemonCard from "./components/PokemonCard" // Utilisez PokemonCard ici
-import NavBar from "./components/NavBar" // Utilisez PokemonCard ici
+import PokemonCard from "./components/PokemonCard"
+import NavBar from "./components/NavBar" 
 
 const pokemonList = [
     {
       name: "bulbasaur",
       imgSrc:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png",
+      id : 1
     },
     {
       name: "charmander",
       imgSrc:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png",
+      id : 4
     },
     {
       name: "squirtle",
       imgSrc:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png",
+      id : 7
     },
     {
       name: "pikachu",
       imgSrc:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
+      id : 25
     },
     {
       name: "mew",
+      id : 151
     },
   ];
 
 function App() {
-  const [pokemonIndex, setPokemonIndex] = useState(0);
+  const [pokemonIndex, setPokemonIndex] = useState(1);
 
   /*const previousClick = () => {
     if (pokemonIndex > 0) {
@@ -59,13 +64,13 @@ function App() {
     nextButton = <button onClick={nextClick}>Suivant</button>;
   }*/
   
-  
+  const pokemon = pokemonList.filter(p => p.id === pokemonIndex)[0]
   return (
     <div>
       <MyTitle />
-      <PokemonCard pokemon={pokemonList[pokemonIndex]}/>
+      <PokemonCard pokemon={pokemon}/>
       <NavBar pokemonIndex={pokemonIndex} setPokemonIndex={setPokemonIndex} pokemonList ={pokemonList}/>
-      <p>#{pokemonIndex + 1}</p>
+      <p>#{pokemonIndex}</p>
     </div>
   );
 }
